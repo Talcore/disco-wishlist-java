@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="observer.ObserverController">
+   <TableView fx:id="tWishlist" style="-fx-font-size: 16;" VBox.vgrow="ALWAYS">
+     <columns>
+       <TableColumn fx:id="colName" editable="false" maxWidth="450.0" minWidth="-Infinity" prefWidth="450.0" resizable="false" style="-fx-font-size: 25;" text="Titel" />
+       <TableColumn fx:id="colInterpret" editable="false" maxWidth="300.0" minWidth="-Infinity" prefWidth="300.0" resizable="false" style="-fx-font-size: 25;" text="Interpret" />
+         <TableColumn fx:id="colAlbum" editable="false" maxWidth="350.0" minWidth="-Infinity" prefWidth="350.0" resizable="false" style="-fx-font-size: 25;" text="Album" />
+         <TableColumn fx:id="colVotes" editable="false" maxWidth="100.0" minWidth="-Infinity" prefWidth="100.0" resizable="false" style="-fx-font-size: 25;" text="Votes" />
+         <TableColumn fx:id="colDel" editable="false" maxWidth="70.0" minWidth="-Infinity" prefWidth="70.0" resizable="false" sortable="false" style="-fx-alignment: CENTER;" />
+         <TableColumn fx:id="colNow" prefWidth="75.0" />
+     </columns>
+   </TableView>
+</VBox>

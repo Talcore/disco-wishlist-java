@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.VBox?>
+
+
+<DialogPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="changer.ChangerController">
+   <header>
+      <Label alignment="CENTER" text="Welches Programm möchten Sie starten?" textAlignment="CENTER" />
+   </header>
+   <content>
+      <VBox alignment="TOP_CENTER">
+         <children>
+            <RadioButton fx:id="rBclient" alignment="CENTER_LEFT" mnemonicParsing="false" selected="true" text="Wunschliste Client">
+               <toggleGroup>
+                  <ToggleGroup fx:id="startgroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rBserver" alignment="CENTER_LEFT" mnemonicParsing="false" text="Wunschliste Server" toggleGroup="$startgroup">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </RadioButton>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#startProgram" text="Starten" textAlignment="CENTER" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </content>
+   <padding>
+      <Insets bottom="-20.0" />
+   </padding>
+</DialogPane>
