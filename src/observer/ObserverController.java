@@ -69,25 +69,29 @@ public class ObserverController {
 	}
 	
 	public void updateWishList() {
-		getWishTracks();
-		wtlist = getWishTrackList();
-		tWishlist.setItems(wtlist);
+		if(getWishTracks()) {
+			wtlist = FXCollections.observableArrayList(wishtracks);
+			tWishlist.setItems(wtlist);
+		}else {
+			System.out.println("No new songs retrieved.");
+		}
 	}
 	
-	private void getWishTracks() {
+	private boolean getWishTracks() {
 		String query = "SELECT * FROM alltracks JOIN wishlist ON alltracks.track_id = wishlist.track_id ORDER BY votes DESC";
 		ResultSet res;
 		try {
 			res = DBConnection.getConnection().createStatement().executeQuery(query);
-			wishtracks = DBTools.convertWishTrackResulttoArray(res, this);
-			System.out.println("Retrieved " + wishtracks.size() + " Songs from db.");
+			ArrayList<WishTrack> tmpwishtracks = DBTools.convertWishTrackResulttoArray(res, this);
+			if(wishtracks == null || !tmpwishtracks.equals(wishtracks)) {
+				wishtracks = tmpwishtracks;
+				System.out.println("Retrieved " + wishtracks.size() + " Songs from db.");
+				return true;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	private ObservableList<WishTrack> getWishTrackList() {
-		return (ObservableList<WishTrack>) FXCollections.observableArrayList(wishtracks);
+		return false;
 	}
 	
 	public int removeFromWishlist(int id) {

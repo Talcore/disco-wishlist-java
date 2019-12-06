@@ -3,7 +3,6 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import com.mysql.jdbc.Driver;
 
 public class DBConnection {
 	
@@ -20,7 +19,7 @@ public class DBConnection {
 	
 	private static void loadDriver() {
 		try {
-			Driver.class.newInstance();
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			System.out.println("Driver loaded.");
 		} catch (Exception e) {
 			System.out.println("Exception at driver loading:\n");

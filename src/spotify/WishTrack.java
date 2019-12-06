@@ -48,6 +48,11 @@ public class WishTrack {
 				+ ", spotify_id=" + spotify_id + ", album_cover=" + album_cover + ", votes=" + votes + "]";
 	}
 
+	@Override
+	public boolean equals(Object wt) {
+		return wt instanceof WishTrack && this.track_id == ((WishTrack) wt).track_id && this.votes.get() == ((WishTrack) wt).votes.get();
+	}
+
 	public int getTrack_id() {
 		return track_id;
 	}

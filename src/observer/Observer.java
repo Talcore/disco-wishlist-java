@@ -6,8 +6,6 @@ import java.net.URISyntaxException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -27,12 +25,8 @@ public class Observer extends Application {
 		primaryStage.setMaximized(true);
 		primaryStage.show();
 		
-		Timeline updateTimer = new Timeline(new KeyFrame(Duration.millis(500), new EventHandler<ActionEvent>() {
-
-		    @Override
-		    public void handle(ActionEvent event) {
-		        controller.updateWishList();
-		    }
+		Timeline updateTimer = new Timeline(new KeyFrame(Duration.millis(500), event -> {
+			controller.updateWishList();
 		}));
 		updateTimer.setCycleCount(Timeline.INDEFINITE);
 		updateTimer.play();
